@@ -4,7 +4,7 @@ FROM python:3.9
 COPY requirements.txt ./
 
 # Read the requirement
-RUN pip install--no-cache-dir -r requirement.txt
+RUN pip install--no-cache-dir -r requirements.txt
 
 # copy folder
 WORKDIR /usr/src/app
