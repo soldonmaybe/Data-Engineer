@@ -18,7 +18,7 @@ import tweepy
 client = tweepy.Client(bearer_token, api_key, api_secret, access_token, access_secret)
 auth = tweepy.OAuth1UserHandler (api_key, api_secret, access_token, access_secret)
 api = tweepy.API(auth)
-search = ['kanjuruhan', 'pssi']
+search = ['kanjuruhan', 'valorant']
 
 # def logging
 logging.basicConfig(format='%(asctime)s %(message)s',
