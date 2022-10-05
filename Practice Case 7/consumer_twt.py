@@ -1,18 +1,22 @@
-from kafka import KafkaConsumer
-import json
+from confluent_kafka import Consumer
+################
+c=Consumer({'bootstrap.servers':'localhost:9092','group.id':'python-consumer','auto.offset.reset':'earliest'})
+print('Kafka Consumer has been initiated...')
 
-topic_name = 'twt_stream'
-
-consumer = KafkaConsumer(
-    topic_name,
-     bootstrap_servers=['localhost:9092'],
-     auto_offset_reset='latest',
-     enable_auto_commit=True,
-     auto_commit_interval_ms=5000,
-     fetch_max_bytes=128,
-     max_poll_records=100,
-     value_deserializer=lambda x: json.loads(x.decode('utf-8')))
-
-for message in consumer:
-    tweets = json.loads(json.dumps(message.value))
-    print(tweets)
+print('Available topics to consume: ', c.list_topics().topics)
+c.subscribe(['twt_streaming'])
+################
+def main():
+    while True:
+        msg=c.poll(1.0) #timeout
+        if msg is None:
+            continue
+        if msg.error():
+            print('Error: {}'.format(msg.error()))
+            continue
+        data=msg.value().decode('utf-8')
+        print(data)
+    c.close()
+        
+if __name__ == '__main__':
+    main()
