@@ -18,7 +18,7 @@ import tweepy
 client = tweepy.Client(bearer_token, api_key, api_secret, access_token, access_secret)
 auth = tweepy.OAuth1UserHandler (api_key, api_secret, access_token, access_secret)
 api = tweepy.API(auth)
-search = ['valorant league', 'valorant franchising']
+search = ['valorant', 'vct']
 
 # def logging
 logging.basicConfig(format='%(asctime)s %(message)s',
@@ -44,15 +44,14 @@ def receipt(err,msg):
         
 # def stream tweet
 class MyStream(tweepy.StreamingClient):
-    def on_tweet(self, tweet):
-        if tweet.referenced_tweets == None:
-            # print(tweet.text)
-            p.poll(1)
-            p.produce('twt_streaming', tweet.text, callback=receipt)
-            p.flush()
-            time.sleep(0.2)
+    # This function gets called when the stream is working
     def on_connect(self):
-        print('Connected')
+        print("Connected")
+
+
+    def on_tweet(self, tweet):
+       print(tweet.data) # this will have the author_id
+       return
 
 # def instance
 stream = MyStream(bearer_token= bearer_token)
