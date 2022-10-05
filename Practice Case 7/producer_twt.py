@@ -1,9 +1,9 @@
 # def keys
-bearer_token = r'AAAAAAAAAAAAAAAAAAAAAELuegEAAAAAcCUcFpnbVW4pt95lMZZ3xrNuTLQ%3DPxnK3Zs5gOMwRXpDBmwqZNxEhrfta0r7cgRK6smPaJd9w265T8'
-api_key = 'csMXTrxkWJvnRMvy7SmkBrNwa'
-api_secret = '80jU1i6jLvBC0tFqJZhNHuYgjwTyqGGKzKRp50yRzdJiic1H7K'
-access_token = '223026744-WEMrzubOKlh9MvxuuFR7NLE5qQaJW1prhujcPuzK'
-access_secret = 'ZLhjdWTEGbe2Gb1ZQAtCAItT35f18HkOyerJaJPx7ouU0'
+bearer_token = r'your bearer token here'
+api_key = 'your consumer api key here'
+api_secret = 'your consumer api secret here'
+access_token = 'your access token here'
+access_secret = 'your access secret here'
 
 # import dependencies
 from confluent_kafka import Producer
