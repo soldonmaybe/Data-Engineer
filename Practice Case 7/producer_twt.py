@@ -44,13 +44,12 @@ def receipt(err,msg):
         
 # def stream tweet
 class MyStream(tweepy.StreamingClient):
-    # This function gets called when the stream is working
     def on_connect(self):
         print("Connected")
 
 
     def on_tweet(self, tweet):
-        if tweet.referenced_tweets == None:
+        if tweet.tweets == None:
             p.poll(1)
             p.produce('twt_streaming', tweet.text, callback=receipt)
             p.flush()
@@ -59,8 +58,5 @@ class MyStream(tweepy.StreamingClient):
 
 # def instance
 stream = MyStream(bearer_token= bearer_token)
-
-for term in search:
-    stream.add_rules(tweepy.StreamRule(term))
-
-stream.filter(tweet_fields=["referenced_tweets"])
+stream.add_rules(tweepy.StreamRule(search))
+stream.filter(tweet_fields=["tweets"])
