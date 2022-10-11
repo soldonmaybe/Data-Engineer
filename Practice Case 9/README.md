@@ -130,6 +130,7 @@ The result should show :
 
 ## Create join stream
 
+
 To add information from the prior PostgreSQL database to the table we are working with we can JOIN the stream with the information in the topic. Run the following in the ksql prompt.
 ```
 CREATE STREAM enriched_business_transaction AS
