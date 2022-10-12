@@ -29,7 +29,7 @@ There are should now several containers running and we are going to interact wit
 
 ## Create PostgreSQL Table
 
-Open up new terminal and write
+Open up new terminal and write random table or follow this script:
 ```
 docker exec -it postgres psql -U postgres
 ```
