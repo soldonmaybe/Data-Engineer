@@ -1,6 +1,6 @@
 # How to build connection between ksqlDB and postgreSQL JDBC
 
-This is how to connect ksqlDB to postgreSQL using JDBC connector
+This is how to connect ksqlDB to postgreSQL using JDBC connector and try to write tables and streams in postgreSQL and ksqlDB
 
 ## Set-up docker-compose.yml
 
