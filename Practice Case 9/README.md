@@ -29,12 +29,12 @@ There are should now several containers running and we are going to interact wit
 
 ## Create PostgreSQL Table
 
-Open up new terminal and write random table or follow this script:
+Open up new terminal and write:
 ```
 docker exec -it postgres psql -U postgres
 ```
 
-This will bring us to a postgres prompt. Run the following in the postgres prompt:
+This will bring us to a postgres prompt. Run to write random table or follow the following in the postgres prompt:
 
 ```
 CREATE TABLE business_profiles (
